@@ -1,0 +1,27 @@
+footer {
+    padding: 20px 0
+}
+.footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 30px;
+    list-style-type: none;
+    &__item {
+        font-size: 12px;
+        padding: 10px 20px;
+        font-weight: normal;
+        a {
+            color: #000;
+
+            &:visited {
+                text-decoration: none;
+                color: #000;
+            }
+            &:hover {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+    }
+}

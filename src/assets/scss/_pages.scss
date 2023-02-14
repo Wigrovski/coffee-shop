@@ -1,0 +1,155 @@
+.banner {
+    height: 260px;
+
+    .title-big {
+        margin-top: 60px;
+    }
+}
+
+.banner.coffepage-banner {
+    background: url('../img/coffee_bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+.banner.goodspage-banner {
+    background: url('../img/goods_bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+.banner.contactspage-banner {
+    background: url('../img/contacts_bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+.banner.itempage-banner {
+    background: url('../img/coffee_bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.shop {
+    padding: 70px 0 40px 0;
+    .title {
+        margin-top: 10px;
+    }
+    &__girl {
+        display: block;
+        margin: 0 auto;
+    }
+    &__text {
+        margin-top: 25px;
+        font-size: 14px;
+        text-align: center;
+    }
+    &__search {
+        &-label {
+            margin-right: 20px;
+        }
+    &-input {
+        width: 180px;
+        height: 30px;
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+        border: none;
+        border-radius: 4px;
+        font-size: 12px;
+        padding: 0 15px;
+        
+        &::placeholder {
+            text-align: center
+        }
+    }
+    }
+    &__filter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-label {
+            margin-right: 35px;
+        }
+        &-btn {
+            width: 75px;
+            height: 30px;
+            background-color: #fff;
+            border: none;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+            font-size: 12px;
+            outline: none;
+            cursor: pointer;
+            &:first-child {
+                border-radius: 4px 0px 0px 4px;
+            }
+            &:last-child {
+                border-radius: 0px 4px 4px 0px;
+            }
+            &:focus {
+                outline: none
+            }
+        }
+    }
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item {
+        width: 220px;
+        min-height: 240px;
+        margin: 60px 40px 0 40px;
+        padding: 22px 24px;
+        background: rgba(255, 255, 255, 0.65);
+        border-radius: 8px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+        transition: 0.3s all;
+        &:hover {
+            box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 151px;
+            height: 130px;
+            object-fit: cover;
+        }
+        &-title, &-price, &-country {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: right;
+        }
+    }
+    &__point {
+        margin-top: 16px;
+
+        span {
+            font-weight: bold;
+        }
+        &-price {
+            font-size: 24px;
+            font-weight: normal !important;
+        }
+        &:first-child {
+            margin-top: 26px;
+        }
+    }
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.49) !important;
+    box-shadow: 4px 4px 20px rgba(3, 2, 2, 0.25);
+    border-radius: 4px;
+    background: #fff;
+}
+
+.textarea label {
+    display: block;
+    text-align: center;
+}
+
+.textarea textarea {
+    resize: none;
+    border: 1px solid rgba(0, 0, 0, 0.49);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    background: #fff;
+}
+
+.send-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-color: rgba(0, 0, 0, 0.49) !important;
+}

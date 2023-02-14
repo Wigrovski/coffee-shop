@@ -1,0 +1,95 @@
+.preview {
+    height: 640px;
+    background: url('../img/Main_bg.jpg') center center no-repeat;
+    background-size: cover;
+
+    .title-big {
+        margin-top: 110px;
+    }
+    &__subtitle {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 40px;
+        margin-top: 110px;
+        margin-bottom: 0;
+        text-align: center;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    &__subtitle {
+        font-size: 24px;
+        margin-top: 20px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    &__btn {
+        display: block;
+        width: 120px;
+        height: 30px;
+        margin: 0 auto;
+        margin-top: 18px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        line-height: 28px;
+        font-size: 14px;
+
+        &:visited {
+            text-decoration: none;
+            color: #fff;
+        }
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
+
+.beanslogo {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.about {
+    padding: 80px 0 110px 0;
+    background-color: #fff;
+    &__text {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 14px;
+    }
+}
+.best {
+    padding: 80px 0 110px 0;
+    background-color: #fff;
+    background: url('../img/paper.jpg') center center no-repeat;
+    background-size: cover;
+
+    &__wrapper {
+        display: flex; 
+        flex-wrap: wrap;
+    }
+    &__item {
+        width: 220px;
+        min-height: 240px;
+        margin: 0 auto;
+        margin-top: 40px;
+        padding: 22px 24px;
+        background: rgba(255, 255, 255, 0.65);
+        border-radius: 8px;
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 151px;
+            height: 130px;
+            object-fit: cover;
+        }
+        &-title, &-price {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: right;
+        }
+    }
+}
