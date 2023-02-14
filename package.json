@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "seamless-scroll-polyfill": "^2.3.0",
     "uuid": "^9.0.0",
     "vue": "^2.6.14",
     "vue-router": "^3.6.5"

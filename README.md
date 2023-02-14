@@ -1,4 +1,4 @@
-# coffee-shop
+# Coffe-Shop on VueJS
 
 ## Project setup
 ```
