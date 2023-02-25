@@ -32,39 +32,12 @@
 
 import NavItem from '@/components/NavItem.vue'
 
-import { v4 as uuidv4 } from 'uuid'
-
 export default {
     components: { NavItem },
-    data() {
-        return {
-            links: {
-                footer: {
-                    id: uuidv4(),
-                    text: '',
-                    link: '/',
-                    icon: 'Logo_black.svg',
-                },
-                other: [
-                
-                {
-                    id: uuidv4(),
-                    text: 'Our coffee',
-                    link: '/our-coffee',
-                },
-                {
-                    id: uuidv4(),
-                    text: 'For your pleasure',
-                    link: '/goods',
-                },
-                {
-                    id: uuidv4(),
-                    text: 'Contact us',
-                    link: '/contact',
-                },
-            ]
-            }
+    computed: {
+        links() {
+            return this.$store.getters["getFooterLinks"]
         }
-    }
+    },
 }
 </script>

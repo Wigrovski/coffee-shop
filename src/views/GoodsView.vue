@@ -30,22 +30,20 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="line"></div>
-    
+
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <product-card
-                            v-for="card in goods"
-                            :key="card.id"
-                            :name="card.name"
-                            :price="card.price"
-                            :image="card.image"
-                            class-link="shop__item" 
-                            class-title="shop__item-title"
-                            class-price="shop__item-price" 
-                            />
+                            <product-card 
+                            v-for="card in goods" 
+                            :key="card.id" 
+                            :card="card" 
+                            @onNavigate="navigate"
+                            class-link="shop__item"
+                            class-title="shop__item-title" 
+                            class-price="shop__item-price" />
                         </div>
                     </div>
                 </div>
@@ -57,58 +55,19 @@
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
-import { v4 as uuidv4 } from 'uuid'
 
 export default {
-    components: {NavBarComponent, ProductCard},
-    data() {
-        return {
-            goods: [
-        {
-            id: uuidv4(),
-            name: 'Solimo Coffee Beans 2kg',
-            link: '/',
-            image: 'coffee-1.jpg',
-            price: 10.73,
-        },
-        {
-            id: uuidv4(),
-            name: 'Presto Coffee Beans 1kg',
-            link: '/',
-            image: 'coffee-2.jpg',
-            price: 15.99,
-        },
-        {
-            id: uuidv4(),
-            name: 'AROMISTICO Coffee 1kg',
-            link: '/',
-            image: 'coffee-3.jpg',
-            price:6.99,
-        },
-        {
-            id: uuidv4(),
-            name: 'Solimo Coffee Beans 2kg',
-            link: '/',
-            image: 'coffee-1.jpg',
-            price: 10.73,
-        },
-        {
-            id: uuidv4(),
-            name: 'Presto Coffee Beans 1kg',
-            link: '/',
-            image: 'coffee-2.jpg',
-            price: 15.99,
-        },
-        {
-            id: uuidv4(),
-            name: 'AROMISTICO Coffee 1kg',
-            link: '/',
-            image: 'coffee-3.jpg',
-            price: 6.99,
-        },
-    ]
+    components: { NavBarComponent, ProductCard },
+    computed: {
+        goods() {
+            return this.$store.getters["getGoods"]
         }
-    }
+    },
+    methods: {
+        navigate(id) {
+            this.$router.push({name: 'goods', params: {id: id}})
+        }
+    },
 }
 
 

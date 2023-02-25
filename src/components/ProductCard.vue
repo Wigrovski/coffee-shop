@@ -1,28 +1,16 @@
 <template>
-    <div :class="classLink">
-        <img :src="require(`@/assets/img/${image}`)" alt="image">
+    <div :class="classLink" @click="logEmmit(card.id)">
+        <img :src="require(`@/assets/img/${card.image}`)" alt="card.image">
         <div :class="classTitle">
-            {{ name }}
+            {{ card.name }}
         </div>
-        <div :class="classPrice">{{price}}$</div>
+        <div :class="classPrice">{{card.price}}$</div>
     </div>
 </template>
 
 <script>
     export default {
         props: {
-            name: {
-                type: String,
-                require: true,
-            },
-            price: {
-                type: Number,
-                required: true,
-            },
-            image: {
-                type: String,
-                required: true,
-            },
             classLink: {
                 type: String,
                 required: true,
@@ -35,7 +23,16 @@
                 type: String,
                 required: true,
             },
-        }
+            card: {
+                type: Object,
+                required: true
+            }
+        },
+        methods: {
+            logEmmit(id) {
+                this.$emit('onNavigate', id)
+            }
+        },
     }
 
 </script>

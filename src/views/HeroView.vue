@@ -52,14 +52,12 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
                             <product-card
-                            v-for="item in bestsellers"
-                            :key="item.id"
-                            :name="item.name"
-                            :price="item.price"
-                            :image="item.image"
+                            v-for="card in bestsellers"
+                            :key="card.id"
                             class-link="best__item"
                             class-title="best__item-title"
                             class-price="best__item-price"
+                            :card="card"
                             />
 
                         </div>
@@ -67,44 +65,20 @@
                 </div>
             </div>
         </section>
-
     </main>
 </template>
 
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
-import { v4 as uuidv4 } from 'uuid'
 
 import { scrollIntoView } from "seamless-scroll-polyfill" 
 
 export default {
     components: { NavBarComponent, ProductCard },
-    data() {
-        return {
-            bestsellers: [
-        {
-            id: uuidv4(),
-            name: 'Solimo Coffee Beans 2kg',
-            link: '/',
-            image: 'coffee-1.jpg',
-            price: 10.73,
-        },
-        {
-            id: uuidv4(),
-            name: 'Presto Coffee Beans 1kg',
-            link: '/',
-            image: 'coffee-2.jpg',
-            price: 15.99,
-        },
-        {
-            id: uuidv4(),
-            name: 'AROMISTICO Coffee 1kg',
-            link: '/',
-            image: 'coffee-3.jpg',
-            price: 6.99,
-        },
-    ]
+    computed: {
+        bestsellers() {
+            return this.$store.getters["getBestsellers"]
         }
     },
     methods: {
