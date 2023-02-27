@@ -24,7 +24,7 @@ const links = {
                 {
                     id:  uuidv4(),
                     text: 'For your pleasure',
-                    link: '/for-yor-plasure',
+                    link: '/for-your-pleasure',
                 },
                 {
                     id:  uuidv4(),

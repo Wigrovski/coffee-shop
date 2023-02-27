@@ -32,7 +32,7 @@
                     </div>
                     <div class="shop__point">
                         <span>Price:</span>
-                        <span class="shop__point-price"> {{ card.price }}</span>
+                        <span class="shop__point-price"> {{ card.price | addCurrency }}</span>
                     </div>
                 </div>
             </div>
@@ -50,12 +50,14 @@ import NavBarComponent from '@/components/NavBarComponent.vue'
 
 export default {
     components: {NavBarComponent},
+    
     computed: {
         pageName() {
             return this.$route.name
         },
         card() {
-            return this.$store.getters["getProductById"](this.$route.params.id)
+            return this.$store.getters["getProductByCoffee"](this.$route.params.id) ||
+            this.$store.getters["getProductByPleasure"](this.$route.params.id)
         }
     },
 }

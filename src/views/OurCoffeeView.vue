@@ -73,6 +73,7 @@
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
+import { navigate }  from '@/mixins/navigate'
 
 
 export default {
@@ -82,11 +83,13 @@ export default {
             return this.$store.getters["getCoffee"]
         }
     },
-    methods: {
-        navigate(id) {
-            this.$router.push({name: 'coffee', params: {id: id}})
+    data() {
+        return {
+            name: 'coffee'
         }
     },
+    mixins: [navigate]
+
 }
 
 

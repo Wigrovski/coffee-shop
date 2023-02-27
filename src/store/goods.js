@@ -22,28 +22,28 @@ const goods = {
                 name: 'AROMISTICO Coffee 1kg',
                 link: '/',
                 image: 'coffee-3.jpg',
-                price:6.99,
+                price:8.99,
             },
             {
                 id: uuidv4(),
                 name: 'Solimo Coffee Beans 2kg',
                 link: '/',
                 image: 'coffee-1.jpg',
-                price: 10.73,
+                price: 11.73,
             },
             {
                 id: uuidv4(),
                 name: 'Presto Coffee Beans 1kg',
                 link: '/',
                 image: 'coffee-2.jpg',
-                price: 15.99,
+                price: 20.99,
             },
             {
                 id: uuidv4(),
                 name: 'AROMISTICO Coffee 1kg',
                 link: '/',
                 image: 'coffee-3.jpg',
-                price: 6.99,
+                price: 16.99,
             },
         ]
     },
@@ -51,6 +51,11 @@ const goods = {
             getGoods(state) {
                 return state.goods 
             },
+            getProductByPleasure(state) {
+                return (id) => {
+                    return state.goods.find((card) => id === card.id)
+                }
+            }
     
 }
 }

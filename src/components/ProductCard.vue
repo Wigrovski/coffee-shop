@@ -4,7 +4,7 @@
         <div :class="classTitle">
             {{ card.name }}
         </div>
-        <div :class="classPrice">{{card.price}}$</div>
+        <div :class="classPrice">{{card.price | addCurrency}}</div>
     </div>
 </template>
 
