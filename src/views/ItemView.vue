@@ -56,8 +56,10 @@ export default {
             return this.$route.name
         },
         card() {
-            return this.$store.getters["getProductByCoffee"](this.$route.params.id) ||
-            this.$store.getters["getProductByPleasure"](this.$route.params.id)
+            const pageGetter = this.pageName === 'coffee' ? 'getProductByCoffee' : 'getProductByPleasure'
+            return this.$store.getters[pageGetter](this.$route.params.id)
+            // return this.$store.getters["getProductByCoffee"](this.$route.params.id) ||
+            // this.$store.getters["getProductByPleasure"](this.$route.params.id)
         }
     },
 }

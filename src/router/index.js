@@ -19,6 +19,8 @@ const routes = [
     { name: 'goods', path: '/for-your-pleasure/:id', component: ItemView },
 ]
 
+
+
 const router = new VueRouter({
     mode: 'history',
     routes

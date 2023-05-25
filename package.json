@@ -7,6 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.7.1",
+    "@vuelidate/core": "^2.0.2",
+    "@vuelidate/validators": "^2.0.2",
     "core-js": "^3.8.3",
     "seamless-scroll-polyfill": "^2.3.0",
     "uuid": "^9.0.0",

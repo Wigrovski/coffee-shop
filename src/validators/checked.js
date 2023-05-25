@@ -1,0 +1,1 @@
+export const validCheckbox = (value) => value.include('')
