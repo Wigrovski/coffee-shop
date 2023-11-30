@@ -110,18 +110,15 @@
                                     <div class="form-check">
                                             
                                             <label class="form-check-label" for="flexCheckChecked" style="text-align: left;">
-                                                <input class="form-check-input" type="checkbox" id="flexCheckChecked " v-model='v$.checkbox.$model' :checked="checked" > 
-                                                </input>
+                                                <input class="form-check-input" type="checkbox" id="flexCheckChecked " v-model.trim='v$.checkbox.$model' @change="v$.checkbox.$touch()" checked="checked" > 
                                                 I agree with the terms of conditions
                                             </label>
                                             <span v-if="!checkbox" style="color:red">Need confirm</span>
                                     </div>
                                 <span >
-                                    
                                 </span>
                                 </div>
-                                    <pre>
-                                     
+                                    <pre>                                    
                                     </pre>
                             </div>
                             
@@ -141,12 +138,12 @@
 </template>
 
 <script>
-import NavBarComponent from '@/components/NavBarComponent.vue';
+import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import useVuelidate  from '@vuelidate/core'
 import { required, email, maxLength } from '@vuelidate/validators'
 import { helpers } from '@vuelidate/validators'
-import { minLength } from '../validators/minLength';
+import { minLength } from '../validators/minLength'
 
 
 export default {
@@ -165,11 +162,13 @@ export default {
     },
     components: {NavBarComponent, ProductCard},
     validations() {
-        return {∏
+        return {
             name: { required },
             email: { required, email },
             phone: {  },
-            checkbox: { required },
+            checkbox: {required (val) {
+        return val
+      }      },
             message: { 
                 required,
                 maxLength: maxLength(20),
@@ -182,10 +181,6 @@ export default {
             const isFormCorrect = await this.v$.$validate()
             if (!isFormCorrect) return alert('Need fill all requared fields')
             else  alert('Your message fill send. Thank you')
-            this.name = ''
-            this.email = ''
-            this.phone = ''
-            this.message = ''
 
             console.log(
                 {
@@ -193,7 +188,6 @@ export default {
                     email: this.email,
                     phone: this.phone,
                     message: this.message,
-                    textArea
                 }
             );
         }
