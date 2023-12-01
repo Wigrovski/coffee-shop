@@ -22,7 +22,7 @@ const coffee = {
                 name: 'AROMISTICO Coffee 1kg',
                 link: '/',
                 image: 'coffee-3.jpg',
-                price:6.99,
+                price: 6.99,
             },
             {
                 id: uuidv4(),
@@ -47,17 +47,27 @@ const coffee = {
             },
         ]
     },
-        getters: {
-            getCoffee(state) {
-                return state.coffee 
-            },
-            getProductByCoffee(state) {
-                return (id) => {
-                    return state.coffee.find((card) => id == card.id)
-                }
+    mutations: {
+        setCoffeeData(state, data) {
+            state.coffee = data
+        }
+    },
+    actions: {
+        setCoffeeData({ commit }, data) {
+            commit('setCoffeeData', data)
+        }
+    },
+    getters: {
+        getCoffee(state) {
+            return state.coffee
+        },
+        getProductByCoffee(state) {
+            return (id) => {
+                return state.coffee.find((card) => id == card.id)
             }
         }
-    
+    }
+
 }
 
 export default coffee

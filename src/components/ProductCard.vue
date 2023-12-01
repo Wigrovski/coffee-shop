@@ -1,6 +1,6 @@
 <template>
     <div :class="classLink" @click="logEmmit(card.id)">
-        <img :src="require(`@/assets/img/${card.image}`)" alt="card.image">
+        <img :src="card.image" :alt="card.image"/>
         <div :class="classTitle">
             {{ card.name }}
         </div>
