@@ -10,7 +10,7 @@
                 <h1 class="title-big">Our Coffee</h1>
             </div>
         </div>
-        <section class="shop">
+        <section class="shop" v-if="!isLoading">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 offset-2">
@@ -68,20 +68,31 @@
                 </div>
             </div>
         </section>
+        <spinner-component v-else></spinner-component>
     </main>
 </template>
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import { navigate }  from '@/mixins/navigate'
+import SpinnerComponent from '@/components/SpinnerComponent.vue'
 
 
 export default {
-    components: {NavBarComponent, ProductCard},
+    components: {NavBarComponent, ProductCard, SpinnerComponent},
     computed: {
         coffee() {
             return this.$store.getters["getCoffee"]
+        },
+        isLoading(){
+            return this.$store.getters["getIsLoading"]
         }
+    },
+    beforeMount() {
+        this.$store.dispatch("setIsLoading", true)
+        setTimeout(() => {
+            this.$store.dispatch("setIsLoading", false)
+        }, 500)
     },
     data() {
         return {

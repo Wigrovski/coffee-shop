@@ -19,11 +19,11 @@
                 <div class="col-lg-4">
                     <div class="title">About it</div>
                     <img class="beanslogo" src="@/assets/logo/Beans_logo_dark.svg" alt="Beans logo">
-                    <div class="shop__point">
-                        <span>Country:</span>
+                    <div class="shop__point" v-if="product.country">
+                        <span >Country:</span>
                         {{ product.country }}
                     </div>
-                    <div class="shop__point">
+                    <div class="shop__point" v-if="product.description">
                         <span>Description:</span>
                         {{ product.description }}
                     </div>
@@ -54,21 +54,33 @@ export default {
     },
 
     mounted() {
-        fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
-        .then((res) => res.json())
-        .then((data) => {
+        if (this.pageName === 'coffee') {
+            fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
+            .then((res) => res.json())
+            .then((data) => {
             this.product = data
         })
-    },
+        } else {
+            fetch(`http://localhost:3000/goods/${this.$route.params.id}`)
+            .then((res) => res.json())
+            .then((data) => {
+            this.product = data
+        })
+        
+    }},
+
     destroyed() {
         this.product = null
     },
     computed: {
+        coffee() {
+            return this.$store.getters["getCoffee"]
+        },
         pageName() {
             return this.$route.name
         },
         card() {
-            const pageGetter = this.pageName === 'coffee' ? 'getProductByCoffee' : 'getProductByPleasure'
+            const pageGetter = this.pageName === 'coffee' || 'goods' ? 'getProductByCoffee' : 'getProductByPleasure'
             return this.$store.getters[pageGetter](this.$route.params.id)
             // return this.$store.getters["getProductByCoffee"](this.$route.params.id) ||
             // this.$store.getters["getProductByPleasure"](this.$route.params.id)

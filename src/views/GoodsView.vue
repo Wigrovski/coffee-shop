@@ -10,7 +10,7 @@
                 <h1 class="title-big">For your pleasure</h1>
             </div>
         </div>
-        <section class="shop">
+        <section class="shop" v-if="!loading">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 offset-2">
@@ -50,6 +50,7 @@
                 </div>
             </div>
         </section>
+        <spinner-component v-else></spinner-component>
     </main>
 </template>
 
@@ -57,9 +58,11 @@
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import { navigate }  from '@/mixins/navigate'
+import { loading }  from '@/mixins/loading'
+import SpinnerComponent from '@/components/SpinnerComponent.vue'
 
 export default {
-    components: { NavBarComponent, ProductCard },
+    components: { NavBarComponent, ProductCard, SpinnerComponent},
     computed: {
         goods() {
             return this.$store.getters["getGoods"]
@@ -70,7 +73,12 @@ export default {
             name: 'goods'
         }
     },
-    mixins: [navigate]
+    mixins: [navigate, loading],
+    mounted() {
+        fetch('http://localhost:3000/goods')
+        .then(res => res.json())
+        .then(data => this.$store.dispatch("setGoodsData", data))
+    }
     
 }
 

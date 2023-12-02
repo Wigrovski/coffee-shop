@@ -2,36 +2,24 @@ import { v4 as uuidv4 } from 'uuid'
 
 const bestsellers = {
     state: {
-        bestsellers: [
-            {
-                id: uuidv4(),
-                name: 'Solimo Coffee Beans 2kg',
-                link: '/',
-                image: 'coffee-1.jpg',
-                price: 10.73,
-            },
-            {
-                id: uuidv4(),
-                name: 'Presto Coffee Beans 1kg',
-                link: '/',
-                image: 'coffee-2.jpg',
-                price: 15.99,
-            },
-            {
-                id: uuidv4(),
-                name: 'AROMISTICO Coffee 1kg',
-                link: '/',
-                image: 'coffee-3.jpg',
-                price: 6.99,
-            },
-        ],
+        bestsellers: [],
     },
-        getters: {
-            getBestsellers(state) {
-                return state.bestsellers 
-            },
+    mutations: {
+        setBestData(state, data) {
+            state.bestsellers = data
         }
-    
+    },
+    actions: {
+        setBestData({ commit }, data) {
+            commit('setBestData', data)
+        }
+    },
+    getters: {
+        getBestsellers(state) {
+            return state.bestsellers
+        },
+    }
+
 }
 
 export default bestsellers
