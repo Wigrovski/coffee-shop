@@ -54,20 +54,13 @@ export default {
     },
 
     mounted() {
-        if (this.pageName === 'coffee') {
-            fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
+            fetch(`http://localhost:3000/${this.pageName}/${this.$route.params.id}`)
             .then((res) => res.json())
             .then((data) => {
             this.product = data
-        })
-        } else {
-            fetch(`http://localhost:3000/goods/${this.$route.params.id}`)
-            .then((res) => res.json())
-            .then((data) => {
-            this.product = data
-        })
         
-    }},
+        })
+    },
 
     destroyed() {
         this.product = null

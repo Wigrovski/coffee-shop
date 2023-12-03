@@ -11,6 +11,8 @@
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2",
     "core-js": "^3.8.3",
+    "current": "^0.1.6",
+    "debounce": "^2.0.0",
     "seamless-scroll-polyfill": "^2.3.0",
     "uuid": "^9.0.0",
     "vue": "^2.6.14",
