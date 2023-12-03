@@ -19,4 +19,6 @@ npm run build
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### For full work need JSON server
+```
 json-server --watch db.json
+```
